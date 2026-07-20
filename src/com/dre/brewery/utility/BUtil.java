@@ -81,7 +81,7 @@ public class BUtil {
 		);
 	}
 
-	/**
+/**
 	 * Sets the Item in the Players hand, depending on which hand he used and if the hand should be swapped
 	 *
 	 * @param event Interact Event to tell which hand the player used
@@ -98,6 +98,26 @@ public class BUtil {
 			}
 		} else {
 			event.getPlayer().setItemInHand(new ItemStack(mat));
+		}
+	}
+
+	/**
+	 * Sets the Item in the Players hand, depending on which hand he used and if the hand should be swapped
+	 *
+	 * @param event Interact Event to tell which hand the player used
+	 * @param item The new ItemStack to put in the hand (amount included)
+	 * @param swapped If true, will set the opposite Hand instead of the one he used
+	 */
+	@SuppressWarnings("deprecation")
+	public static void setItemInHand(PlayerInteractEvent event, ItemStack item, boolean swapped) {
+		if (P.use1_9) {
+			if ((event.getHand() == EquipmentSlot.OFF_HAND) != swapped) {
+				event.getPlayer().getInventory().setItemInOffHand(item);
+			} else {
+				event.getPlayer().getInventory().setItemInMainHand(item);
+			}
+		} else {
+			event.getPlayer().setItemInHand(item);
 		}
 	}
 
