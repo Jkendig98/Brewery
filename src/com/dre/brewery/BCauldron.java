@@ -464,13 +464,16 @@ public class BCauldron {
 				boolean isBucket = item.getType().name().endsWith("_BUCKET");
 				boolean isBottle = LegacyUtil.isBottle(item.getType());
 				if (item.getAmount() > 1) {
-					item.setAmount(item.getAmount() - 1);
+					ItemStack decremented = item.clone();
+					decremented.setAmount(item.getAmount() - 1);
+					BUtil.setItemInHand(event, decremented, handSwap);
 
 					if (isBucket) {
 						giveItem(player, new ItemStack(Material.BUCKET));
 					} else if (isBottle) {
 						giveItem(player, new ItemStack(Material.GLASS_BOTTLE));
 					}
+				} else {
 				} else {
 					if (isBucket) {
 						BUtil.setItemInHand(event, Material.BUCKET, handSwap);
