@@ -42,9 +42,9 @@
 					<target>17</target>
 					<encoding>UTF-8</encoding>
 					<excludes>
- 					   <exclude>**/integration/ShopKeepersListener.java</exclude>
- 					   <exclude>**/integration/barrel/LogBlockBarrel.java</exclude>
-  					   <exclude>**/integration/barrel/TownyBarrel.java</exclude>
+					    <exclude>com/dre/brewery/integration/ShopKeepersListener.java</exclude>
+					    <exclude>com/dre/brewery/integration/barrel/LogBlockBarrel.java</exclude>
+					    <exclude>com/dre/brewery/integration/barrel/TownyBarrel.java</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
