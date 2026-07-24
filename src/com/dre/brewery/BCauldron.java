@@ -471,6 +471,7 @@ public class BCauldron {
 					} else if (isBottle) {
 						giveItem(player, new ItemStack(Material.GLASS_BOTTLE));
 					}
+				}
 				} else {
 					if (isBucket) {
 						BUtil.setItemInHand(event, Material.BUCKET, handSwap);
