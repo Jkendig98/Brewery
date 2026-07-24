@@ -475,7 +475,6 @@ public class BCauldron {
 					}
 				}
 				} else {
-				} else {
 					if (isBucket) {
 						BUtil.setItemInHand(event, Material.BUCKET, handSwap);
 					} else if (isBottle) {
