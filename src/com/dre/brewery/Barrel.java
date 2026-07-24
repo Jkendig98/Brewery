@@ -381,7 +381,6 @@ public class Barrel implements InventoryHolder {
 			}
 			ItemStack[] items = inventory.getContents();
 			inventory.clear();
-			}
 			if (event.willDropItems()) {
 				byte wood = body.getWood();
 				for (ItemStack item : items) {
