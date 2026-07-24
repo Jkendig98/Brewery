@@ -137,11 +137,6 @@
 			<id>phoenix</id>
 			<url>https://nexus.phoenixdevt.fr/repository/maven-public/</url>
 		</repository>
-		<repository>
-			<!-- Shopkeepers -->
-			<id>Lichtspiele</id>
-			<url>https://nexus.lichtspiele.org/repository/releases/</url>
-		</repository>
 
 	</repositories>
 
@@ -252,19 +247,6 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<!-- https://www.spigotmc.org/resources/logblock.67333/history -->
-			<groupId>de.diddiz</groupId>
-			<artifactId>logblock</artifactId>
-			<version>1.16.5.1</version>
-			<scope>provided</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>*</artifactId>
-					<groupId>*</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
 			<!-- https://github.com/Slimefun/Slimefun4/releases -->
 			<groupId>com.github.Slimefun</groupId>
 			<artifactId>Slimefun4</artifactId>
@@ -290,20 +272,6 @@
 			<groupId>com.acrobot.chestshop</groupId>
 			<artifactId>chestshop</artifactId>
 			<version>3.12.2</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<!-- https://www.spigotmc.org/resources/towny-advanced.72694/history -->
-			<groupId>com.github.TownyAdvanced</groupId>
-			<artifactId>Towny</artifactId>
-			<version>0.100.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<!-- https://www.spigotmc.org/resources/shopkeepers.80756/history -->
-			<groupId>com.nisovin.shopkeepers</groupId>
-			<artifactId>ShopkeepersAPI</artifactId>
-			<version>2.18.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
