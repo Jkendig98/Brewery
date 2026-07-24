@@ -9,8 +9,6 @@ import com.dre.brewery.filedata.BConfig;
 import com.dre.brewery.integration.barrel.BlocklockerBarrel;
 import com.dre.brewery.integration.barrel.GriefPreventionBarrel;
 import com.dre.brewery.integration.barrel.LWCBarrel;
-import com.dre.brewery.integration.barrel.LogBlockBarrel;
-import com.dre.brewery.integration.barrel.TownyBarrel;
 import com.dre.brewery.integration.item.MMOItemsPluginItem;
 import com.dre.brewery.recipe.BCauldronRecipe;
 import com.dre.brewery.recipe.RecipeItem;
@@ -150,31 +148,6 @@ public class IntegrationListener implements Listener {
 			}
 		}
 
-		if (BConfig.useTowny) {
-			if (P.p.getServer().getPluginManager().isPluginEnabled("Towny")) {
-				try {
-					if (!TownyBarrel.checkAccess(event)) {
-						P.p.msg(event.getPlayer(), P.p.languageReader.get("Error_NoBarrelAccess"));
-						event.setCancelled(true);
-						return;
-					}
-				} catch (Throwable e) {
-					event.setCancelled(true);
-					P.p.errorLog("Failed to Check Towny for Barrel Open Permissions!");
-					P.p.errorLog("Brewery was tested with Towny v0.96.3.0");
-					P.p.errorLog("Disable the Towny support in the config and do /brew reload");
-					e.printStackTrace();
-					Player player = event.getPlayer();
-					if (player.hasPermission("brewery.admin") || player.hasPermission("brewery.mod")) {
-						P.p.msg(player, "&cTowny check Error, Brewery was tested with up to v0.96.3.0 of Towny");
-						P.p.msg(player, "&cSet &7useTowny: false &cin the config and /brew reload");
-					} else {
-						P.p.msg(player, "&cError opening Barrel, please report to an Admin!");
-					}
-					return;
-				}
-			}
-		}
 
 		if (BConfig.useBlocklocker) {
 			if (P.p.getServer().getPluginManager().isPluginEnabled("BlockLocker")) {
@@ -300,18 +273,7 @@ public class IntegrationListener implements Listener {
 
 	@EventHandler
 	public void onInventoryClose(InventoryCloseEvent event) {
-		if (BConfig.useLB) {
-			if (event.getInventory().getHolder() instanceof Barrel) {
-				try {
-					LogBlockBarrel.closeBarrel(event.getPlayer(), event.getInventory());
-				} catch (Exception e) {
-					P.p.errorLog("Failed to Log Barrel to LogBlock!");
-					P.p.errorLog("Brewery was tested with version 1.94 of LogBlock!");
-					e.printStackTrace();
-				}
-			}
 		}
-	}
 
 	@EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
 	public void onInteract(PlayerInteractEvent event) {
