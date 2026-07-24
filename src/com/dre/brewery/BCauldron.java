@@ -473,6 +473,7 @@ public class BCauldron {
 					} else if (isBottle) {
 						giveItem(player, new ItemStack(Material.GLASS_BOTTLE));
 					}
+				}
 				} else {
 				} else {
 					if (isBucket) {
